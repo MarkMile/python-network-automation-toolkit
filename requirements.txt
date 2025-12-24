@@ -1,0 +1,5 @@
+# Network Automation Toolkit - Requirements File
+# This file lists all the dependencies required for the project.
+
+netmiko
+pyyaml
