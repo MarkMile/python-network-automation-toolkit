@@ -1,6 +1,5 @@
 # network/connector.py
-# This module provides functionality to connect to network devices 
-# using the Netmiko library.
+# This module provides functionality to connect to network devices using Netmiko.
 
 from netmiko import ConnectHandler
 from netmiko.exceptions import NetMikoTimeoutException, NetMikoAuthenticationException
@@ -11,12 +10,12 @@ class NetworkConnector:
     Class to manage connections to network devices using Netmiko.
     """
 
-    def __init__(self, device: dict[str, str]):
+    def __init__(self, device: dict):
         """
         Initialize the NetworkConnector with device details.
 
         Args:
-            device (dict[str, str]): A dictionary containing device connection details.
+            device (dict): A dictionary containing device connection details.
         """
         self.device = device
         self.connection = None
