@@ -12,9 +12,18 @@ class InventoryLoader:
     """
 
     def __init__(self, inventory_path: str):
-        self.inventory_path: Path = Path(inventory_path)
+        """
+        Initialize the InventoryLoader with the path to the inventory file.
+
+        Args:
+            inventory_path (str): Path to the YAML inventory file.
+        """
+        self.inventory_path = Path(inventory_path)
 
     def load_inventory(self):
+        """
+        Load and parse the inventory file.
+        """
         # Check if the inventory file exists
         if not self.inventory_path.exists():
             raise FileNotFoundError(f"Inventory file not found: {self.inventory_path}")
