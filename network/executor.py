@@ -1,7 +1,7 @@
 # network/executor.py
 # This module provides functionality to execute commands on network devices.
 
-from connector import NetworkConnector
+from network.connector import NetworkConnector
 
 
 class DeviceExecutor:
@@ -28,23 +28,17 @@ class DeviceExecutor:
         results = {}
 
         for device in self.devices:
-            name = device['name']
+            name = device["name"]
             connector = NetworkConnector(device)
-            
+
             # Attempt to connect and run the command
             try:
                 connector.connect()
                 output = connector.send_command(command)
-                results[name] = {
-                    "success": "success",
-                    "output": output
-                }
+                results[name] = {"status": "success", "output": output}
             # Catch all exceptions to log errors
-            except Exception as e: 
-                results[name] = {
-                    "success": "error",
-                    "error": str(e)
-                }
+            except Exception as e:
+                results[name] = {"status": "error", "error": str(e)}
             finally:
                 connector.disconnect()
 
