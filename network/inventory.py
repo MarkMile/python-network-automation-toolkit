@@ -1,6 +1,6 @@
 # network/inventory.py
-# This module provides functionality to load and parse network device
-# inventory from a YAML file.
+# This module provides functionality to load and parse network device inventory
+# from a YAML file.
 
 import yaml
 from pathlib import Path
