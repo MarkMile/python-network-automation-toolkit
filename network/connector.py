@@ -27,7 +27,7 @@ class NetworkConnector:
         Establish a connection to the network device.
         """
         try:
-            self.logger(f"Connecting to {self.device["host"]}...")
+            self.logger.info(f"Connecting to {self.device["host"]}...")
             self.connection = ConnectHandler(
                 device_type=self.device["device_type"],
                 host=self.device["host"],
@@ -44,7 +44,7 @@ class NetworkConnector:
         Disconnect from the network device.
         """
         if self.connection:
-            self.logger(f"Disconnecting from {self.device["host"]}...")
+            self.logger.info(f"Disconnecting from {self.device["host"]}...")
             self.connection.disconnect()
 
     def send_command(self, command: str) -> str:
@@ -57,5 +57,5 @@ class NetworkConnector:
         if not self.connection:
             raise RuntimeError("Not connected to any device.")
 
-        self.logger(f"Sending command to {self.device["host"]}: {command}")
+        self.logger.info(f"Sending command to {self.device["host"]}: {command}")
         return self.connection.send_command(command)
