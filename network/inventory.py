@@ -19,7 +19,7 @@ class InventoryLoader:
         """
         self.inventory_path = Path(inventory_path)
 
-    def load_inventory(self):
+    def load_inventory(self) -> list[dict]:
         """
         Load and parse the inventory file.
         """
