@@ -10,3 +10,9 @@ Failures are reported per device.
 The toolkit uses Python logging to provide
 console and file-based logs for all device
 operations and errors.
+
+## Command-Line Usage
+Run commands across all devices in the inventory:
+
+```bash
+python cli.py --command "show ip interface brief"
