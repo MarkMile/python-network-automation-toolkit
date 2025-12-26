@@ -10,12 +10,12 @@ class NetworkConnector:
     Class to manage connections to network devices using Netmiko.
     """
 
-    def __init__(self, device: dict):
+    def __init__(self, device: dict[str, str]):
         """
         Initialize the NetworkConnector with device details.
 
         Args:
-            device (dict): A dictionary containing device connection details.
+            device (dict[str, str]): A dictionary containing device connection details.
         """
         self.device = device
         self.connection = None

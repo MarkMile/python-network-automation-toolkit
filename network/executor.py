@@ -9,16 +9,16 @@ class DeviceExecutor:
     Class to execute commands on network devices.
     """
 
-    def __init__(self, devices: list[dict]):
+    def __init__(self, devices: list[dict[str, str]]):
         """
         Initialize the DeviceExecutor with a list of devices.
 
         Args:
-            devices (list[dict]): A list of dictionaries containing device connection details.
+            devices (list[dict[str, str]]): A list of dictionaries containing device connection details.
         """
         self.devices = devices
 
-    def run_command(self, command: str) -> dict:
+    def run_command(self, command: str) -> dict[str, dict]:
         """
         Execute a command on all devices and return the results.
 
