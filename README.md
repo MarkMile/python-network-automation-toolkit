@@ -1,18 +1,48 @@
-# Network-Automation-Toolkit-in-Python
-Python-based network automation toolkit built using Netmiko, TextFSM, and Cisco IOS, with config drift detection and rollback.
+# Python Network Automation Toolkit
 
-## Multi-device Execution
-The toolkit executes commands across multiple devices
-and continues operation even if some devices fail.
-Failures are reported per device.
+A Python-based network automation tool designed to execute
+commands across multiple Cisco IOS devices using SSH.
 
-## Logging
-The toolkit uses Python logging to provide
-console and file-based logs for all device
-operations and errors.
+## Features
+- YAML-based device inventory
+- Multi-device command execution
+- Graceful failure handling
+- Centralized logging (console + file)
+- CLI interface
+- Clean, modular architecture
 
-## Command-Line Usage
-Run commands across all devices in the inventory:
+## Project Structure
+```bash
+python-network-automation-toolkit/
+├── inventory/
+│   └── devices.yaml
+├── logs/
+│   └── app.log
+├── network/
+│   ├── connector.py
+│   ├── executor.py
+│   └── inventory.py
+├── utils/
+│   └── logger.py
+├── .gitignore
+├── cli.py
+├── README.md
+└── requirements.txt
+```
 
+## Usage
 ```bash
 python cli.py --command "show ip interface brief"
+```
+
+## Architecture Overview
+The toolkit follows a layered design:
+
+- CLI handles user input
+- Inventory loader provides device data
+- Executor coordinates multi-device execution
+- Connector manages SSH lifecycle per device
+- Logger provides centralized observability
+
+This separation improves maintainability,
+testability, and extensibility.
