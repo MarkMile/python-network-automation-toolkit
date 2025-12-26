@@ -2,6 +2,7 @@
 # This module provides functionality to execute commands on network devices.
 
 from network.connector import NetworkConnector
+from utils.logger import setup_logger
 
 
 class DeviceExecutor:
@@ -11,12 +12,13 @@ class DeviceExecutor:
 
     def __init__(self, devices: list[dict[str, str]]):
         """
-        Initialize the DeviceExecutor with a list of devices.
+        Initialize DeviceExecutor with a list of devices.
 
         Args:
             devices (list[dict[str, str]]): A list of dictionaries containing device connection details.
         """
         self.devices = devices
+        self.logger = setup_logger()
 
     def run_command(self, command: str) -> dict[str, dict]:
         """
@@ -38,6 +40,7 @@ class DeviceExecutor:
                 results[name] = {"status": "success", "output": output}
             # Catch all exceptions to log errors
             except Exception as e:
+                self.logger.error(f"{name} failed: {e}")
                 results[name] = {"status": "error", "error": str(e)}
             finally:
                 connector.disconnect()
