@@ -1,4 +1,4 @@
 __pycache__
 .venv
-temp_test.py
+test_executor.py
 logs/
