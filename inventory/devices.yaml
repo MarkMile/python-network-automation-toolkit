@@ -2,11 +2,11 @@ devices:
   - name: router1
     host: 10.10.20.1
     device_type: cisco_ios
-    username: admin
-    password: admin123
+    username: <your-username>
+    password: <your-password>
 
   - name: router2
     host: 10.10.20.2
     device_type: cisco_ios
-    username: admin
-    password: wrongpass123
+    username: <your-username>
+    password: <your-password>
