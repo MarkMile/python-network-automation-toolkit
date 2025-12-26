@@ -35,7 +35,6 @@ python-network-automation-toolkit/
 python cli.py --command "show ip interface brief"
 ```
 
-```md
 ## Architecture Overview
 The toolkit follows a layered design:
 
