@@ -11,12 +11,12 @@ def setup_logger(name: str = "network_toolkit") -> logging.Logger:
 
     Args:
         name (str): The name of the logger.
-    
+
     Returns:
         logging.Logger: Configured logger instance.
     """
     # Create logs directory if it doesn't exist
-    log_dir =  Path("logs")
+    log_dir = Path("logs")
     log_dir.mkdir(exist_ok=True)
 
     # Configure logger
