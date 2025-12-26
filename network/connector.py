@@ -3,6 +3,7 @@
 
 from netmiko import ConnectHandler
 from netmiko.exceptions import NetMikoTimeoutException, NetMikoAuthenticationException
+from utils.logger import setup_logger
 
 
 class NetworkConnector:
@@ -19,12 +20,14 @@ class NetworkConnector:
         """
         self.device = device
         self.connection = None
+        self.logger = setup_logger()
 
     def connect(self):
         """
         Establish a connection to the network device.
         """
         try:
+            self.logger(f"Connecting to {self.device["host"]}...")
             self.connection = ConnectHandler(
                 device_type=self.device["device_type"],
                 host=self.device["host"],
@@ -41,6 +44,7 @@ class NetworkConnector:
         Disconnect from the network device.
         """
         if self.connection:
+            self.logger(f"Disconnecting from {self.device["host"]}...")
             self.connection.disconnect()
 
     def send_command(self, command: str) -> str:
@@ -53,4 +57,5 @@ class NetworkConnector:
         if not self.connection:
             raise RuntimeError("Not connected to any device.")
 
+        self.logger(f"Sending command to {self.device["host"]}: {command}")
         return self.connection.send_command(command)
