@@ -25,6 +25,7 @@ def setup_logger(name: str = "network_toolkit") -> logging.Logger:
 
     # Formatter
     formatter = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s")
+    formatter.datefmt = "%Y-%m-%d %H:%M:%S"
 
     # Console handler
     console_handler = logging.StreamHandler()
